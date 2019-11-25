@@ -1,0 +1,38 @@
+﻿@model AccentureAcademy.MovieApp.Models.Movie
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <header class="jumbotron">
+        <h1 class="text-center"> @this.ViewBag.header</h1>
+    </header>
+    <main class="container">
+        <form method="post">
+            <div>
+               <label for="txtTitulo">Title</label>
+        <input type="text" id="txtTitulo" class="form-control" name="Title" value="@this.Model.Title" />
+             </div>
+            <div>
+                <label for="txtReleaseDate">Release Date</label>
+                <input type="datetime" id="txtReleaseDate" class="form-control" name="ReleaseDate" value="@String.Format("{0:yyyy-MM-dd}",this.Model.ReleaseDate)" />
+            </div>
+            <div>
+                <label for="txtDuration">Dutarion</label>
+                <input type="text" id="txtDuration" class="form-control" name="RunningTime" value="@this.Model.RunningTime" />
+            </div>
+            <button style="margin-top: 1em">Send</button>
+        </form>
+    </main>
+</body>
+</html>

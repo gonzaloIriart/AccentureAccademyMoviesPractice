@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AccentureAcademy.MovieApp.Models.Movie>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listar</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <header class="jumbotron text-center">
+        <h1>Listado de peliculas</h1>
+    </header>
+    <main class="container">
+        <div class="text-right">
+            <a class="glyphicon glyphicon-plus" href="/Movie/Agregar/" style="font-size:1.5em"></a>
+        </div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Release Date</th>
+                        <th>Duration</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in this.Model)
+                    {
+                        <tr>
+                            <td style="padding: 1.2em">@p.Title</td>
+                            <td style="padding: 1.2em">@p.ReleaseDate.ToShortDateString()</td>
+                            <td style="padding: 1.2em">@p.RunningTime</td>
+                            <td class="text-right text-center">
+                                <a class="glyphicon glyphicon-edit" href="/Movie/Editar/@p.Id" style="padding: 0.4em; font-size:1.5em; margin-right:15px"></a>
+                                <a class="glyphicon glyphicon-trash" href="/Movie/Eliminar/@p.Id" style="padding: 0.4em; font-size:1.5em"></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </main>
+    </body>
+    </html>
